@@ -1,4 +1,5 @@
 import 'package:dip_chat/chat_detail.dart';
+import 'package:dip_chat/list_contact.dart';
 import 'package:flutter/material.dart';
 
 class ListChat extends StatefulWidget {
@@ -17,9 +18,16 @@ class _ListChatState extends State<ListChat> {
             style: TextStyle(color: Colors.white),
           ),
           actions: [
-            IconButton(
-                icon: Icon(Icons.perm_contact_cal_rounded, color: Colors.white),
-                onPressed: null),
+            InkWell(
+              onTap: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => Home()));
+              },
+              child: IconButton(
+                  icon:
+                      Icon(Icons.perm_contact_cal_rounded, color: Colors.white),
+                  onPressed: null),
+            ),
             IconButton(
                 icon: Icon(Icons.add, color: Colors.white), onPressed: null)
           ],
