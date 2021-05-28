@@ -1,3 +1,4 @@
+import 'package:dip_chat/profile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -58,13 +59,19 @@ class _ChatDetailState extends State<ChatDetail> {
           child: Icon(Icons.arrow_back_ios, color: Colors.white)),
       title: Row(
         children: <Widget>[
-          Container(
-            width: 40,
-            height: 40,
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              image: DecorationImage(
-                  image: AssetImage('assets/profil.png'), fit: BoxFit.cover),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => Profile()));
+            },
+            child: Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    image: AssetImage('assets/profil.png'), fit: BoxFit.cover),
+              ),
             ),
           ),
           SizedBox(
