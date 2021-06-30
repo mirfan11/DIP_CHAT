@@ -1,5 +1,7 @@
 import 'package:dip_chat/chat_detail.dart';
 import 'package:dip_chat/list_contact.dart';
+import 'package:dip_chat/services/auth.dart';
+import 'package:dip_chat/signin_screen.dart';
 import 'package:flutter/material.dart';
 
 class ListChat extends StatefulWidget {
@@ -29,7 +31,18 @@ class _ListChatState extends State<ListChat> {
                   onPressed: null),
             ),
             IconButton(
-                icon: Icon(Icons.add, color: Colors.white), onPressed: null)
+                icon: Icon(Icons.add, color: Colors.white), onPressed: null),
+            InkWell(
+              onTap: () {
+                AuthMethods().signOut().then((s) {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => SignInScreen()));
+                });
+              },
+              child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Icon(Icons.exit_to_app)),
+            )
           ],
         ),
         body: SingleChildScrollView(
