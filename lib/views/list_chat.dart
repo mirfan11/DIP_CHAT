@@ -3,10 +3,11 @@ import 'package:dip_chat/chat_detail.dart';
 import 'package:dip_chat/list_contact.dart';
 import 'package:dip_chat/services/auth.dart';
 import 'package:dip_chat/services/database.dart';
-import 'package:dip_chat/signin_screen.dart';
+import 'package:dip_chat/views/signin_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'helperfunctions/sharedpref_helper.dart';
+import '../helperfunctions/sharedpref_helper.dart';
+import 'chatscreen.dart';
 
 class ListChat extends StatefulWidget {
   @override
@@ -45,34 +46,26 @@ class _ListChatState extends State<ListChat> {
   Widget searchListUserTile({String profileUrl, name, username, email}) {
     return GestureDetector(
       onTap: () {
-        /*var chatRoomId = getChatRoomIdByUsernames(myUserName, username);
-        Map<String, dynamic> chatRoomInfoMap = {
-          "users": [myUserName, username]
-        };
-        DatabaseMethods().createChatRoom(chatRoomId, chatRoomInfoMap);
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => ChatScreen(username, name)));*/
+                builder: (context) => ChatScreen(username, name)));
       },
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 8),
-        child: Row(
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(40),
-              child: Image.network(
-                profileUrl,
-                height: 40,
-                width: 40,
-              ),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(40),
+            child: Image.network(
+              profileUrl,
+              height: 40,
+              width: 40,
             ),
-            SizedBox(width: 12),
-            Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [Text(name), Text(email)])
-          ],
-        ),
+          ),
+          SizedBox(width: 12),
+          Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [Text(name), Text(email)])
+        ],
       ),
     );
   }

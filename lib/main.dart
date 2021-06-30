@@ -1,9 +1,9 @@
 //import 'dart:js';
 
 import 'package:dip_chat/constants.dart';
-import 'package:dip_chat/list_chat.dart';
+import 'package:dip_chat/views/list_chat.dart';
 import 'package:dip_chat/services/auth.dart';
-import 'package:dip_chat/signin_screen.dart';
+import 'package:dip_chat/views/signin_screen.dart';
 import 'package:dip_chat/welcome.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';

@@ -1,5 +1,5 @@
 import 'package:dip_chat/helperfunctions/sharedpref_helper.dart';
-import 'package:dip_chat/list_chat.dart';
+import 'package:dip_chat/views/list_chat.dart';
 import 'package:dip_chat/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

@@ -1,5 +1,5 @@
 import 'package:dip_chat/constants.dart';
-import 'package:dip_chat/signin_screen.dart';
+import 'package:dip_chat/views/signin_screen.dart';
 import 'package:flutter/material.dart';
 
 class Welcome extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:dip_chat/constants.dart';
-import 'package:dip_chat/list_chat.dart';
+import 'package:dip_chat/views/list_chat.dart';
 import 'package:dip_chat/signup_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:dip_chat/services/auth.dart';

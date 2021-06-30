@@ -1,7 +1,7 @@
 import 'package:dip_chat/constants.dart';
 import 'package:flutter/material.dart';
 
-import 'signin_screen.dart';
+import 'views/signin_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
