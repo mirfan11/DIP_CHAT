@@ -1,3 +1,6 @@
+import 'package:dip_chat/helperfunctions/sharedpref_helper.dart';
+import 'package:dip_chat/list_chat.dart';
+import 'package:dip_chat/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -10,7 +13,7 @@ class AuthMethods {
     return auth.currentUser;
   }
 
-  Future<User> signInWithGoogle(BuildContext context) async {
+  signInWithGoogle(BuildContext context) async {
     final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
     final GoogleSignIn _googleSignIn = new GoogleSignIn();
 
@@ -28,6 +31,27 @@ class AuthMethods {
         await _firebaseAuth.signInWithCredential(credential);
     User userDetails = result.user;
 
-    if (result != null) {}
+    if (result != null) {
+      SharedPreferenceHelper().saveUserEmail(userDetails.email);
+      SharedPreferenceHelper().saveUserId(userDetails.uid);
+      SharedPreferenceHelper()
+          .saveUserName(userDetails.email.replaceAll("@gmail.com", ""));
+      SharedPreferenceHelper().saveDisplayName(userDetails.displayName);
+      SharedPreferenceHelper().saveUserProfileUrl(userDetails.photoURL);
+
+      Map<String, dynamic> userInfoMap = {
+        "email": userDetails.email,
+        "username": userDetails.email.replaceAll("@gmail.com", ""),
+        "name": userDetails.displayName,
+        "imgUrl": userDetails.photoURL
+      };
+
+      DatabaseMethods()
+          .addUserInfoToDB(userDetails.uid, userInfoMap)
+          .then((value) {
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => ListChat()));
+      });
+    }
   }
 }

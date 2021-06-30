@@ -2,6 +2,7 @@ import 'package:dip_chat/constants.dart';
 import 'package:dip_chat/list_chat.dart';
 import 'package:dip_chat/signup_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:dip_chat/services/auth.dart';
 
 class SignInScreen extends StatelessWidget {
   @override
@@ -78,32 +79,54 @@ class SignInScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Expanded(
-                        child: TextField(
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8.0),
-                              borderSide: BorderSide.none,
-                            ),
-                            filled: true,
-                            fillColor: Color(0xFFe7edeb),
-                            hintText: "Password",
-                            prefixIcon: Icon(
-                              Icons.lock,
-                              color: kPrimaryColor,
-                            ),
-                            suffixIcon: Icon(
-                              Icons.visibility,
-                              color: Colors.grey,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 30),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: TextField(
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(8.0),
+                                borderSide: BorderSide.none,
+                              ),
+                              filled: true,
+                              fillColor: Color(0xFFe7edeb),
+                              hintText: "Password",
+                              prefixIcon: Icon(
+                                Icons.lock,
+                                color: kPrimaryColor,
+                              ),
+                              suffixIcon: Icon(
+                                Icons.visibility,
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
                         ),
+                      ],
+                    ),
+                  ),
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        AuthMethods().signInWithGoogle(context);
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(24),
+                          color: Color(0xffDB4437),
+                        ),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        child: Text(
+                          "Sign In with Google",
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
                       ),
-                    ],
+                    ),
                   ),
                   Spacer(),
                   Padding(
@@ -134,7 +157,7 @@ class SignInScreen extends StatelessWidget {
                               color: Colors.black,
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   )
