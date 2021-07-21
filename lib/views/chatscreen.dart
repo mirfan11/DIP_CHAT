@@ -141,6 +141,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue.shade200,
         title: Text(widget.name),
       ),
       body: Container(
@@ -150,7 +151,7 @@ class _ChatScreenState extends State<ChatScreen> {
             Container(
               alignment: Alignment.bottomCenter,
               child: Container(
-                color: Colors.orangeAccent.withOpacity(0.8),
+                color: Colors.blueAccent.withOpacity(0.8),
                 padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                 child: Row(
                   children: [
