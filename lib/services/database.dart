@@ -32,4 +32,22 @@ class DatabaseMethods {
         .doc(chatRoomId)
         .update(lastMessageInfoMap);
   }
+
+  createChatRoom(String chatRoomId, Map chatRoomInfoMap) async {
+    final snapShot = await FirebaseFirestore.instance
+        .collection("chatrooms")
+        .doc(chatRoomId)
+        .get();
+
+    if (snapShot.exists) {
+      // chatroom already exists
+      return true;
+    } else {
+      // chatroom does not exists
+      return FirebaseFirestore.instance
+          .collection("chatrooms")
+          .doc(chatRoomId)
+          .set(chatRoomInfoMap);
+    }
+  }
 }

@@ -105,9 +105,9 @@ class _ChatScreenState extends State<ChatScreen> {
                     Expanded(
                         child: TextField(
                       controller: messageTextEdittingController,
-                      // onChanged: (value) {
-                      //   addMessage(false);
-                      // },
+                      onChanged: (value) {
+                        addMessage(false);
+                      },
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                           border: InputBorder.none,
@@ -116,9 +116,9 @@ class _ChatScreenState extends State<ChatScreen> {
                               TextStyle(color: Colors.white.withOpacity(0.6))),
                     )),
                     GestureDetector(
-                      // onTap: () {
-                      //   addMessage(true);
-                      // },
+                      onTap: () {
+                        addMessage(true);
+                      },
                       child: Icon(
                         Icons.send,
                         color: Colors.white,
