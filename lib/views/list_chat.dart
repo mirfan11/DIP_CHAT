@@ -77,21 +77,24 @@ class _ListChatState extends State<ListChat> {
             MaterialPageRoute(
                 builder: (context) => ChatScreen(username, name)));
       },
-      child: Row(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(40),
-            child: Image.network(
-              profileUrl,
-              height: 40,
-              width: 40,
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(40),
+              child: Image.network(
+                profileUrl,
+                height: 40,
+                width: 40,
+              ),
             ),
-          ),
-          SizedBox(width: 12),
-          Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [Text(name), Text(email)])
-        ],
+            SizedBox(width: 12),
+            Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [Text(name), Text(email)])
+          ],
+        ),
       ),
     );
   }
@@ -132,7 +135,7 @@ class _ListChatState extends State<ListChat> {
 
   @override
   void initState() {
-    getMyInfoFromSharedPreference();
+    onScreenLoaded();
     super.initState();
   }
 
@@ -208,7 +211,7 @@ class _ListChatState extends State<ListChat> {
                         )),
                         GestureDetector(
                             onTap: () {
-                              if (searchUsernameEditingController != "") {
+                              if (searchUsernameEditingController.text != "") {
                                 onSearchBtnClick();
                               }
                             },
