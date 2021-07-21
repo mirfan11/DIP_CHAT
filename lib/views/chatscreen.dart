@@ -90,12 +90,12 @@ class _ChatScreenState extends State<ChatScreen> {
                   bottomLeft:
                       sendByMe ? Radius.circular(24) : Radius.circular(0),
                 ),
-                color: sendByMe ? Colors.blue : Color(0xfff1f0f0),
+                color: sendByMe ? Colors.lightBlue : Color(0xfff1f0f0),
               ),
               padding: EdgeInsets.all(16),
               child: Text(
                 message,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.black),
               )),
         ),
       ],
@@ -141,7 +141,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue.shade200,
+        backgroundColor: Colors.blueAccent.shade100,
         title: Text(widget.name),
       ),
       body: Container(
